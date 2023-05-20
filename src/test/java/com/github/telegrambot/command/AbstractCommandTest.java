@@ -3,6 +3,7 @@ package com.github.telegrambot.command;
 import com.github.telegrambot.bot.TelegramBot;
 import com.github.telegrambot.service.SendBotMessageService;
 import com.github.telegrambot.service.SendBotMessageServiceImpl;
+import com.github.telegrambot.service.TelegramUserService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.mockito.internal.verification.VerificationModeFactory;
@@ -24,6 +25,7 @@ abstract class AbstractCommandTest {
     abstract String getCommandMessage();
 
     abstract Command getCommand();
+    protected TelegramUserService telegramUserService = Mockito.mock(TelegramUserService.class);
 
     @Test
     public void shouldProperlyExecuteCommand() throws TelegramApiException {
