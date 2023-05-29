@@ -22,4 +22,3 @@ public class UnknownCommandTest extends AbstractCommandTest {
         return new UnknownCommand(sendBotMessageService);
     }
 }
-

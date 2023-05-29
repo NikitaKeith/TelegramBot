@@ -22,6 +22,4 @@ class StartCommandTest extends AbstractCommandTest {
     Command getCommand() {
         return new StartCommand(sendBotMessageService, telegramUserService);
     }
-
 }
-

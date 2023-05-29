@@ -12,4 +12,8 @@
 * added deployment process to the project ## 0.2.0-SNAPSHOT
 
 ## 0.4.0-SNAPSHOT
-*   JRTB-1: added repository layer.
+* added repository layer.
+
+## 0.5.0-SNAPSHOT
+* added ability to subscribe on group
+* added ability to see the list of the group subscription.

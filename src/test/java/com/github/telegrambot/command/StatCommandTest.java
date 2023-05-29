@@ -19,4 +19,3 @@ public class StatCommandTest extends AbstractCommandTest {
         return new StatCommand(sendBotMessageService, telegramUserService);
     }
 }
-
