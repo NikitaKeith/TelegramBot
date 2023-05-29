@@ -23,4 +23,3 @@ public class NoCommandTest extends AbstractCommandTest {
         return new NoCommand(sendBotMessageService);
     }
 }
-

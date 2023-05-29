@@ -1,5 +1,7 @@
 package com.github.telegrambot.command;
 
+import com.github.telegrambot.javarushclient.JavaRushGroupClient;
+import com.github.telegrambot.service.GroupSubService;
 import com.github.telegrambot.service.SendBotMessageService;
 import com.github.telegrambot.service.TelegramUserService;
 import org.junit.jupiter.api.Assertions;
@@ -9,7 +11,6 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import java.util.Arrays;
-
 @DisplayName("Unit-level testing for CommandContainer")
 class CommandContainerTest {
 
@@ -19,9 +20,10 @@ class CommandContainerTest {
     public void init() {
         SendBotMessageService sendBotMessageService = Mockito.mock(SendBotMessageService.class);
         TelegramUserService telegramUserService = Mockito.mock(TelegramUserService.class);
-        commandContainer = new CommandContainer(sendBotMessageService, telegramUserService);
+        JavaRushGroupClient groupClient = Mockito.mock(JavaRushGroupClient.class);
+        GroupSubService groupSubService = Mockito.mock(GroupSubService.class);
+        commandContainer = new CommandContainer(sendBotMessageService, telegramUserService, groupClient, groupSubService);
     }
-
 
     @Test
     public void shouldGetAllTheExistingCommands() {
@@ -45,4 +47,3 @@ class CommandContainerTest {
         Assertions.assertEquals(UnknownCommand.class, command.getClass());
     }
 }
-

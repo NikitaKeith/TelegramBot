@@ -33,4 +33,3 @@ public interface TelegramUserService {
      */
     Optional<TelegramUser> findByChatId(String chatId);
 }
-

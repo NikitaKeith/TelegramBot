@@ -1,6 +1,8 @@
 package com.github.telegrambot.bot;
 
 import com.github.telegrambot.command.CommandContainer;
+import com.github.telegrambot.javarushclient.JavaRushGroupClient;
+import com.github.telegrambot.service.GroupSubService;
 import com.github.telegrambot.service.SendBotMessageServiceImpl;
 import com.github.telegrambot.service.TelegramUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,9 +13,12 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 
 import static com.github.telegrambot.command.CommandName.NO;
 
-
+/**
+ * Telegram bot for Javarush Community from Javarush community.
+ */
 @Component
 public class TelegramBot extends TelegramLongPollingBot {
+
     public static String COMMAND_PREFIX = "/";
 
     @Value("${bot.username}")
@@ -25,10 +30,9 @@ public class TelegramBot extends TelegramLongPollingBot {
     private final CommandContainer commandContainer;
 
     @Autowired
-    public TelegramBot(TelegramUserService telegramUserService) {
-        this.commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this), telegramUserService);
+    public TelegramBot(TelegramUserService telegramUserService, JavaRushGroupClient groupClient, GroupSubService groupSubService) {
+        this.commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this), telegramUserService, groupClient, groupSubService);
     }
-
 
     @Override
     public void onUpdateReceived(Update update) {
@@ -54,6 +58,3 @@ public class TelegramBot extends TelegramLongPollingBot {
         return token;
     }
 }
-
-
-
