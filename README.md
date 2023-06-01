@@ -1,6 +1,5 @@
 # TelegramBot - This is my java training project
 Bot for news
-# Release Notes
 
 ## Deployment Deployment process as easy as possible: 
 Required software: - terminal for running bash scripts - docker - docker-compose to 
