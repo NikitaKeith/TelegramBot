@@ -1,4 +1,4 @@
-# TelegramBot
+# TelegramBot - This is my java training project
 Bot for news
 # Release Notes
 
