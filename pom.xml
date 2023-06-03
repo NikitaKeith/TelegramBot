@@ -12,7 +12,7 @@
 
 	<groupId>com.github</groupId>
 	<artifactId>telegrambot</artifactId>
-	<version>0.5.0-SNAPSHOT</version>
+	<version>0.6.0-SNAPSHOT</version>
 	<name>TelegramBot</name>
 	<description>Telegram Bot for news</description>
 
