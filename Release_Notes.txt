@@ -19,3 +19,6 @@
 
 ## 0.6.0-SNAPSHOT
 * added ability to see the list of the group subscription.
+
+## 0.7.0-SNAPSHOT
+* TB-4: added ability to send notifications about new articles
