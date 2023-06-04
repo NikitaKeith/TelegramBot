@@ -41,4 +41,5 @@ public class StartCommand implements Command {
 
         sendBotMessageService.sendMessage(chatId, START_MESSAGE);
     }
+
 }
