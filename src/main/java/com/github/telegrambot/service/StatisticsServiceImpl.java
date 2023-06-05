@@ -1,10 +1,9 @@
 package com.github.telegrambot.service;
 
-import com.github.telegrambot.javarushclient.dto.GroupStatDTO;
-import com.github.telegrambot.javarushclient.dto.StatisticDTO;
+import com.github.telegrambot.dto.GroupStatDTO;
+import com.github.telegrambot.dto.StatisticDTO;
 import com.github.telegrambot.repository.entity.TelegramUser;
 import org.springframework.stereotype.Service;
-import sun.util.locale.LocaleUtils;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -24,7 +23,7 @@ public class StatisticsServiceImpl implements StatisticsService {
     @Override
     public StatisticDTO countBotStatistic() {
         List<GroupStatDTO> groupStatDTOS = groupSubService.findAll().stream()
-                .filter(it -> !LocaleUtils.isEmpty(it.getUsers()))
+                .filter(it -> !isEmpty(it.getUsers()))
                 .map(groupSub -> new GroupStatDTO(groupSub.getId(), groupSub.getTitle(), groupSub.getUsers().size()))
                 .collect(Collectors.toList());
         List<TelegramUser> allInActiveUsers = telegramUserService.findAllInActiveUsers();
@@ -38,4 +37,3 @@ public class StatisticsServiceImpl implements StatisticsService {
         return (double) allActiveUsers.stream().mapToInt(it -> it.getGroupSubs().size()).sum() / allActiveUsers.size();
     }
 }
-

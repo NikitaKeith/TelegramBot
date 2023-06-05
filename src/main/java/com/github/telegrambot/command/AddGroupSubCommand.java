@@ -41,7 +41,7 @@ public class AddGroupSubCommand implements Command {
             return;
         }
         String groupId = getMessage(update).split(SPACE)[1];
-        String chatId = getChatId(update);
+        Long chatId = getChatId(update);
         if (isNumeric(groupId)) {
             GroupDiscussionInfo groupById = javaRushGroupClient.getGroupById(Integer.parseInt(groupId));
             if (isNull(groupById.getId())) {
@@ -54,23 +54,23 @@ public class AddGroupSubCommand implements Command {
         }
     }
 
-    private void sendGroupNotFound(String chatId, String groupId) {
+    private void sendGroupNotFound(Long chatId, String groupId) {
         String groupNotFoundMessage = "Нет группы с ID = \"%s\"";
         sendBotMessageService.sendMessage(chatId, String.format(groupNotFoundMessage, groupId));
     }
 
-    private void sendNotValidGroupID(String chatId, String groupId) {
+    private void sendNotValidGroupID(Long chatId, String groupId) {
         String groupNotFoundMessage = "Неправильный ID группы = \"%s\"";
         sendBotMessageService.sendMessage(chatId, String.format(groupNotFoundMessage, groupId));
         ;    }
 
-    private void sendGroupIdList(String chatId) {
+    private void sendGroupIdList(Long chatId) {
         String groupIds = javaRushGroupClient.getGroupList(GroupRequestArgs.builder().build()).stream()
                 .map(group -> String.format("%s - %s \n", group.getTitle(), group.getId()))
                 .collect(Collectors.joining());
 
-        String message = "Чтобы подписаться на группу - передай комадну вместе с ID группы. \n" +
-                "Например: /addGroupSub 16 \n\n" +
+        String message = "Чтобы подписаться на группу - передай команду вместе с ID группы. \n" +
+                "Например: /addGroupSub 30 \n\n" +
                 "я подготовил список всех групп - выбирай какую хочешь :) \n\n" +
                 "имя группы - ID группы \n\n" +
                 "%s";

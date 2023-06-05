@@ -1,7 +1,7 @@
 package com.github.telegrambot.service;
 
-import com.github.telegrambot.javarushclient.dto.GroupStatDTO;
-import com.github.telegrambot.javarushclient.dto.StatisticDTO;
+import com.github.telegrambot.dto.GroupStatDTO;
+import com.github.telegrambot.dto.StatisticDTO;
 import com.github.telegrambot.repository.entity.GroupSub;
 import com.github.telegrambot.repository.entity.TelegramUser;
 import org.junit.jupiter.api.Assertions;
@@ -53,4 +53,3 @@ class StatisticsServiceTest {
     }
 
 }
-

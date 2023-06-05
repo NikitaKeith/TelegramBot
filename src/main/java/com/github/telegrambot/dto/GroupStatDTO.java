@@ -1,4 +1,4 @@
-package com.github.telegrambot.javarushclient.dto;
+package com.github.telegrambot.dto;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -7,7 +7,6 @@ import lombok.EqualsAndHashCode;
  * DTO for showing group id and title without data
  */
 @Data
-
 @EqualsAndHashCode(exclude = {"title", "activeUserCount"})
 public class GroupStatDTO {
 

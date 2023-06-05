@@ -1,6 +1,6 @@
 package com.github.telegrambot.service;
 
-import com.github.telegrambot.javarushclient.dto.StatisticDTO;
+import com.github.telegrambot.dto.StatisticDTO;
 
 /**
  * Service for getting bot statistics.

@@ -4,6 +4,7 @@ import com.github.telegrambot.service.SendBotMessageService;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
 import static com.github.telegrambot.command.CommandName.*;
+import static com.github.telegrambot.command.CommandUtils.getChatId;
 
 /**
  * Help {@link Command}.
@@ -20,14 +21,12 @@ public class HelpCommand implements Command {
 
                     + "Работа с подписками на группы:\n"
                     + "%s - подписаться на группу статей\n"
-                    + "%s - отписаться от группы статьей\n"
+                    + "%s - отписаться от группы статей\n"
                     + "%s - получить список групп, на которые подписан\n\n"
 
-                    + "%s - получить помощь в работе со мной\n"
-                    + "%s - получить мою статистику использования\n",
+                    + "%s - получить помощь в работе со мной\n",
             START.getCommandName(), STOP.getCommandName(), ADD_GROUP_SUB.getCommandName(),
-            DELETE_GROUP_SUB.getCommandName(), LIST_GROUP_SUB.getCommandName(), HELP.getCommandName(),
-            STAT.getCommandName());
+            DELETE_GROUP_SUB.getCommandName(), LIST_GROUP_SUB.getCommandName(), HELP.getCommandName());
 
     public HelpCommand(SendBotMessageService sendBotMessageService) {
         this.sendBotMessageService = sendBotMessageService;
@@ -35,6 +34,6 @@ public class HelpCommand implements Command {
 
     @Override
     public void execute(Update update) {
-        sendBotMessageService.sendMessage(update.getMessage().getChatId().toString(), HELP_MESSAGE);
+        sendBotMessageService.sendMessage(getChatId(update), HELP_MESSAGE);
     }
 }

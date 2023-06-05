@@ -8,12 +8,12 @@ public enum CommandName {
     START("/start"),
     STOP("/stop"),
     HELP("/help"),
+    ADMIN_HELP("/ahelp"),
     STAT("/stat"),
     NO("nocommand"),
     ADD_GROUP_SUB("/addgroupsub"),
-    LIST_GROUP_SUB("/listgroupsub"),
-    DELETE_GROUP_SUB("/deleteGroupSub"),
-    ADMIN_HELP("/ahelp");
+    DELETE_GROUP_SUB("/deletegroupsub"),
+    LIST_GROUP_SUB("/listgroupsub");
 
     private final String commandName;
 

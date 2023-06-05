@@ -5,9 +5,6 @@ import lombok.Data;
 /**
  * DTO, which represents post information.
  */
-/**
- * DTO, which represents post information.
- */
 @Data
 public class PostInfo {
 
