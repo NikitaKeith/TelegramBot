@@ -1,6 +1,6 @@
 package com.github.telegrambot.service;
 
-import com.github.telegrambot.repository.TelegramUserRepository ;
+import com.github.telegrambot.repository.TelegramUserRepository;
 import com.github.telegrambot.repository.entity.TelegramUser ;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,7 +37,7 @@ public class TelegramUserServiceImpl implements TelegramUserService {
     }
 
     @Override
-    public Optional<TelegramUser> findByChatId(String chatId) {
+    public Optional<TelegramUser> findByChatId(Long chatId) {
         return telegramUserRepository.findById(chatId);
     }
 }

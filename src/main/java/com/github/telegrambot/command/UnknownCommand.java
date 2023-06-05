@@ -3,6 +3,8 @@ package com.github.telegrambot.command;
 import com.github.telegrambot.service.SendBotMessageService;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
+import static com.github.telegrambot.command.CommandUtils.getChatId;
+
 /**
  * Unknown {@link Command}.
  */
@@ -18,6 +20,6 @@ public class UnknownCommand implements Command {
 
     @Override
     public void execute(Update update) {
-        sendBotMessageService.sendMessage(update.getMessage().getChatId().toString(), UNKNOWN_MESSAGE);
+        sendBotMessageService.sendMessage(getChatId(update), UNKNOWN_MESSAGE);
     }
 }

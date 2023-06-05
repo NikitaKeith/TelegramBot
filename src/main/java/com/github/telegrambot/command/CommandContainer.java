@@ -7,7 +7,6 @@ import com.github.telegrambot.javarushclient.JavaRushGroupClient;
 import com.github.telegrambot.service.StatisticsService;
 import com.github.telegrambot.service.TelegramUserService ;
 import com.google.common.collect.ImmutableMap;
-import com.github.telegrambot.command.AddGroupSubCommand;
 
 import java.util.List;
 
@@ -46,7 +45,7 @@ public class CommandContainer {
         unknownCommand = new UnknownCommand(sendBotMessageService);
     }
 
-    public Command retrieveCommand(String commandIdentifier, String username) {
+    public Command findCommand(String commandIdentifier, String username) {
         Command orDefault = commandMap.getOrDefault(commandIdentifier, unknownCommand);
         if (isAdminCommand(orDefault)) {
             if (admins.contains(username)) {

@@ -1,7 +1,7 @@
 package com.github.telegrambot.command;
 
-import com.github.telegrambot.javarushclient.dto.GroupStatDTO;
-import com.github.telegrambot.javarushclient.dto.StatisticDTO;
+import com.github.telegrambot.dto.GroupStatDTO;
+import com.github.telegrambot.dto.StatisticDTO;
 import com.github.telegrambot.service.SendBotMessageService;
 import com.github.telegrambot.service.StatisticsService;
 import org.junit.jupiter.api.BeforeEach;
@@ -42,7 +42,7 @@ public class StatCommandTest {
         statCommand.execute(prepareUpdate(chatId, CommandName.STAT.getCommandName()));
 
         //then
-        Mockito.verify(sendBotMessageService).sendMessage(chatId.toString(), format(STAT_MESSAGE,
+        Mockito.verify(sendBotMessageService).sendMessage(chatId, format(STAT_MESSAGE,
                 statisticDTO.getActiveUserCount(),
                 statisticDTO.getInactiveUserCount(),
                 statisticDTO.getAverageGroupCountByUser(),

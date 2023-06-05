@@ -1,4 +1,4 @@
-package com.github.telegrambot.javarushclient.dto;
+package com.github.telegrambot.dto;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

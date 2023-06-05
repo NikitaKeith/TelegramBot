@@ -1,12 +1,12 @@
 package com.github.telegrambot.command;
 
-import com.github.telegrambot.command.Command;
-import com.github.telegrambot.repository.entity.TelegramUser;
 import com.github.telegrambot.service.SendBotMessageService;
 import com.github.telegrambot.service.TelegramUserService ;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
 import java.util.Optional;
+
+import static com.github.telegrambot.command.CommandUtils.getChatId;
 
 /**
  * Stop {@link Command}.
@@ -26,12 +26,11 @@ public class StopCommand implements Command {
 
     @Override
     public void execute(Update update) {
-        telegramUserService.findByChatId(update.getMessage().getChatId().toString())
+        sendBotMessageService.sendMessage(getChatId(update), STOP_MESSAGE);
+        telegramUserService.findByChatId(getChatId(update))
                 .ifPresent(it -> {
                     it.setActive(false);
                     telegramUserService.save(it);
                 });
-        sendBotMessageService.sendMessage(update.getMessage().getChatId().toString(), STOP_MESSAGE);
     }
-
 }

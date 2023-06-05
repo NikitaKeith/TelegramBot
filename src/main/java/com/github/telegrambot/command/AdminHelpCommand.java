@@ -4,6 +4,7 @@ import com.github.telegrambot.service.SendBotMessageService;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
 import static com.github.telegrambot.command.CommandName.STAT;
+import static com.github.telegrambot.command.CommandUtils.getChatId;
 import static java.lang.String.format;
 
 /**
@@ -24,6 +25,6 @@ public class AdminHelpCommand implements Command {
 
     @Override
     public void execute(Update update) {
-        sendBotMessageService.sendMessage(update.getMessage().getChatId().toString(), ADMIN_HELP_MESSAGE);
+        sendBotMessageService.sendMessage(getChatId(update), ADMIN_HELP_MESSAGE);
     }
 }
